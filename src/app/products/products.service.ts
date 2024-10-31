@@ -6,8 +6,8 @@ import { Prisma } from '@prisma/client';
 export class ProductsService {
   constructor(private readonly databaseService: DatabaseService) {}
 
-  async create(createProductDto: Prisma.ProductCreateInput) {
-    return this.databaseService.product.create({ data: createProductDto });
+  async create(data: Prisma.ProductCreateInput) {
+    return this.databaseService.product.create({ data });
   }
 
   async findAll() {
@@ -21,10 +21,10 @@ export class ProductsService {
     });
   }
 
-  update(id: number, updateProductDto: Prisma.ProductUpdateInput) {
+  update(id: number, data: Prisma.ProductUpdateInput) {
     return this.databaseService.product.update({
       where: { id },
-      data: updateProductDto,
+      data: data,
     });
   }
 
