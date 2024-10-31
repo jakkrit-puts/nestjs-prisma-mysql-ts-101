@@ -40,7 +40,7 @@ model Product {
   name         String       @unique
   price        Float
   sale         Boolean      @default(false)
-  availability Availability
+  availability Availability @default(ONLINE)
   createdAt    DateTime     @default(now())
   updatedAt    DateTime     @updatedAt
   description  Description?
